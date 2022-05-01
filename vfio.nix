@@ -1,8 +1,5 @@
 { config, pkgs, lib, ... }:
 let
-  ## Configuration
-  my-iommu-group = [ "pci_0000_1f_00_0" "pci_0000_1f_00_1" ];
-
   memory = 12288;
   Hugepagesize = 2048;
   # $ grep Hugepagesize /proc/meminfo
@@ -118,17 +115,11 @@ in {
   # User accounts
   users.users.iver = { extraGroups = [ "libvirtd" "input" "kvm" ]; };
 
-  #systemd.services.vlmcsd.script =
-  #  "${packages.self.vlmcsd}/bin/vlmcsd -L 192.168.122.1:${
-  #    builtins.toString vlmcsd-port
-  #  } -e -D";
-  networking.firewall.interfaces.virbr0.allowedTCPPorts = [ vlmcsd-port ];
-  networking.firewall.interfaces.virbr0.allowedUDPPorts = [ vlmcsd-port ];
-
   systemd.tmpfiles.rules = [
     "L+ /var/lib/libvirt/hooks/qemu - - - - ${qemuEntrypoint}"
 
-    "L+ /var/lib/libvirt/hooks/qemu.d/win10/prepare/begin/start.sh - - - - ${win10.hookPrepare}"
-    "L+ /var/lib/libvirt/hooks/qemu.d/win10/release/end/stop.sh - - - - ${win10.hookRelease}"
+    "L+ /var/lib/libvirt/hooks/qemu.d/win11/prepare/begin/start.sh - - - - ${win11.hookPrepare}"
+    "L+ /var/lib/libvirt/hooks/qemu.d/win11/release/end/stop.sh - - - - ${win11.hookRelease}"
   ];
 }
+

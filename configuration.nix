@@ -7,11 +7,33 @@ in {
   ];
 
   # Setup Grub bootloader.
-  boot.loader.grub = {
-    enable = true;
-    version = 2;
-    device = "/dev/sda";
-    useOSProber = true;
+  boot.loader = {
+    efi = {
+      canTouchEfiVariables = true;
+      # assuming /boot is the mount point of the  EFI partition in NixOS (as the installation section recommends).
+      efiSysMountPoint = "/boot";
+    };
+    grub = {
+      # despite what the configuration.nix manpage seems to indicate,
+      # as of release 17.09, setting device to "nodev" will still call
+      # `grub-install` if efiSupport is true
+      # (the devices list is not used by the EFI grub install,
+      # but must be set to some value in order to pass an assert in grub.nix)
+      devices = [ "nodev" ];
+      efiSupport = true;
+      enable = true;
+      extraEntries = ''
+        menuentry "Windows" {
+          insmod part_gpt
+          insmod fat
+          insmod search_fs_uuid
+          insmod chain
+          search --fs-uuid --set=root "B406-FD60"
+          chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+        }
+      '';
+      version = 2;
+    };
   };
   time.hardwareClockInLocalTime = true;
 
@@ -208,6 +230,9 @@ in {
     enable = true;
     permitRootLogin = "yes";
   };
+
+  environment.sessionVariables.TERMINAL = [ "alacritty" ];
+  environment.sessionVariables.EDITOR = [ "nvim" ];
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
