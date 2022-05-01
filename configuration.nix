@@ -239,6 +239,8 @@ in {
     # CLI tools.
     alacritty # Terminal.
     git
+    pinentry
+    gnupg
     wget
     neovim
     pfetch # System info.
