@@ -16,3 +16,6 @@ bspc config window_gap 9
 bspc config pointer_follows_monitor true
 bspc config focus_follows_pointer true
 
+# Change keyboard layout.
+setxkbmap -option grp:alt_shift_toggle ru,us &
+

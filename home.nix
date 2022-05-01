@@ -30,6 +30,11 @@
     };
   };
 
+  home.file.".config/alacritty/alacritty.yml".source = ./alacritty.yml;
+  home.file.".config/alacritty/dracula.yml".source = ./dracula.yml;
+
   # Window management config.
   home.file.".config/bspwm/bspwmrc".source = ./bspwmrc;
+  home.file.".config/picom/picom.conf".source = ./picom.conf;
+  home.file.".config/sxhkd/sxhkdrc".source = ./sxhkdrc;
 }

@@ -1,0 +1,43 @@
+# Import Dracula theme.
+import:
+  ./dracula.yml
+
+# Window.
+window:
+  dimensions:
+    columns: 120
+    lines: 30
+  padding:
+    x: 10
+    y: 10
+
+decorations: none
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+background_opacity: .67 
+
+# Font.
+font:
+  normal:
+    family: Iosevka
+    style: Regular
+  bold:
+    family: Iosevka
+    style: Bold
+  italic:
+    family: Iosevka
+    style: Italic
+  size: 14 
+  offset:
+    x: 0
+    y: 0
+  glyph_offset:
+    x: 0
+    y: 0
+  debug:
+    persistent_logging: false
+draw_bold_text_with_bright_colors: true
+
