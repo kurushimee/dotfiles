@@ -2,7 +2,8 @@
 let unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in {
   imports = [
-    ./hardware-configuration.nix
+    /etc/nixos/hardware-configuration.nix
+    /etc/nixos/cachix.nix
     ./vfio.nix
   ];
 
@@ -33,6 +34,7 @@ in {
         }
       '';
       version = 2;
+      extraGrubInstallArgs = [ "--modules=tpm" "--disable-shim-lock" ];
     };
   };
   time.hardwareClockInLocalTime = true;
@@ -89,6 +91,12 @@ in {
 
   # BSPWM.
   services.xserver.windowManager.bspwm.enable = true;
+
+  # Set mouse speed.
+  services.xserver.libinput.mouse = {
+    accelProfile = "flat";
+    accelSpeed = "-0.3";
+  };
 
   # Enable sound via Pipewire.
   # TODO: transition from media-session to wireplumber.
@@ -206,10 +214,14 @@ in {
     };
   };
 
-  # Define a user account.
+  # Define user accounts.
   users.users.iver = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ]; # Enable sudo for the user.
+    extraGroups = [ "wheel" "docker" ];
+  };
+  users.users.anna = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" "libvirtd" ];
   };
 
   # Set Fish as shell.
@@ -256,8 +268,6 @@ in {
     unstable.emacs28NativeComp
     nodejs
     shellcheck
-    efitools
-    sbsigntool
     # Languages.
     python310
     unstable.clang_14
@@ -270,6 +280,7 @@ in {
     lua
     # GUI apps.
     firefox
+    gnome.nautilus
     vlc
     steam
     lutris
@@ -285,9 +296,10 @@ in {
     polybar # Top bar for bspwm.
     rofi # Run tool for bspwm.
     # Theming.
-    gnome-breeze
     lxappearance # Change GTK appearance.
-    bibata-cursors
+    arc-theme # GTK theme.
+    papirus-icon-theme # Icon theme.
+    bibata-cursors # Cursor theme.
     # Libraries.
     libgdiplus
     ffmpeg # Media codecs.
