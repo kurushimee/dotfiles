@@ -294,7 +294,6 @@ in {
     sxhkd    # Keyboard bindings manager.
     polybar  # Top bar.
     rofi     # Run tool.
-    dunst    # Notification system.
     # Theming.
     lxappearance        # Change GTK appearance.
     arc-theme           # GTK theme.

@@ -60,6 +60,25 @@
     ".config/rofi/onedark.rasi".source = ./rofi/onedark.rasi;
   };
 
+  # Dunst.
+  services.dunst = {
+    enable = true;
+    settings.global = {
+      frame_width = 0;
+      background = "#29313d";
+      foreground = "#a9c7fc";
+      corner_radius = 8;
+      font = "Roboto 10";
+      sort = true;
+      indicate_hidden = true; 
+      word_wrap = true;
+      ignore_newline = true;
+      transparency = 25;
+      icon_position = "left";
+      max_icon_size = 36;
+    };
+  };
+
   # Doom Emacs
   programs.emacs = {
     enable = true;
