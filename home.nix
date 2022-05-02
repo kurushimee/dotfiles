@@ -60,10 +60,16 @@
     ".config/rofi/onedark.rasi".source = ./rofi/onedark.rasi;
   };
 
+  # Doom Emacs
   programs.emacs = {
     enable = true;
     package = pkgs.emacsNativeComp;
     extraPackages = (epkgs: [ epkgs.vterm ] );
+  };
+  home.file = {
+    ".doom.d/config.el".source = ./doom.d/config.el;
+    ".doom.d/init.el".source = ./doom.d/init.el;
+    ".doom.d/packages.el".source = ./doom.d/packages.el;
   };
 }
 
