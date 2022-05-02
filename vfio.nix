@@ -228,8 +228,10 @@ in {
     "L+ /var/lib/libvirt/hooks/qemu - - - - ${qemuEntrypoint}"
     "L+ /var/lib/libvirt/hooks/qemu.d/win11/prepare/begin/start.sh - - - - ${win11.hookPrepare}"
     "L+ /var/lib/libvirt/hooks/qemu.d/win11/release/end/stop.sh - - - - ${win11.hookRelease}"
-    "L+ /var/lib/libvirt/usb-libvirt-hotplug.sh - - - - ${usbLibvirtHotplug}"
   ];
-  # services.udev.extraRules = ''SUBSYSTEM=="usb",DEVPATH=="/devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.2",RUN+="/var/lib/libvirt/usb-libvirt-hotplug.sh win11"'';
+
+  services.udev = {
+    extraRules = ''SUBSYSTEM=="usb",DEVPATH=="/devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.2",RUN+="${usbLibvirtHotplug} win11"'';
+  };
 }
 

@@ -243,8 +243,12 @@ in {
     permitRootLogin = "yes";
   };
 
-  environment.sessionVariables.TERMINAL = [ "alacritty" ];
-  environment.sessionVariables.EDITOR = [ "nvim" ];
+  environment.variables = {
+    PATH = [ "~/.emacs.d/bin" ];
+    TERMINAL = "alacritty";
+    EDITOR = "nvim";
+    GPG_TTY = "$(tty)";
+  };
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [

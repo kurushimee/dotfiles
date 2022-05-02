@@ -21,8 +21,8 @@
 (setenv "FrameworkPathOverride" "/lib/mono/4.5")
 
 ;; Set font.
-(setq  doom-font (font-spec :family "Iosevka" :size 14)
-       doom-variable-pitch-font (font-spec :family "Iosevka" :size 14))
+(setq  doom-font (font-spec :family "Iosevka" :size 16)
+       doom-variable-pitch-font (font-spec :family "Iosevka" :size 16))
 
 ;; Set theme.
 (setq doom-theme 'doom-dracula)
@@ -37,8 +37,9 @@
 (setq tab-always-indent 'complete)
 
 ;; Setup Unity support.
-(add-hook 'after-init-hook #'unity-build-code-shim)
-(add-hook 'after-init-hook #'unity-setup)
+(after! unity
+  (add-hook 'after-init-hook #'unity-build-code-shim)
+  (add-hook 'after-init-hook #'unity-setup))
 
 ;; Configure Treemacs.
 (when window-system
