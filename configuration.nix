@@ -250,11 +250,11 @@ in {
   environment.systemPackages = with pkgs; [
     # CLI tools.
     alacritty # Terminal.
-    git
-    pinentry
-    gnupg
+    git # Version control system.
+    pinentry # Key generation for GPG.
+    gnupg # GPG key management.
     wget
-    neovim
+    neovim # CLI editor.
     pfetch # System info.
     feh # Set background image.
     sxiv
@@ -265,22 +265,21 @@ in {
     unzip
     service-wrapper # service command support.
     pavucontrol # Audio volume management.
-    unstable.emacs28NativeComp
     nodejs
     shellcheck
     # Languages.
     python310
-    unstable.clang_14
-    omnisharp-roslyn
-    mono
-    dotnet-sdk
-    haskellPackages.ghcup
+    unstable.clang_14 # C++.
+    omnisharp-roslyn # CSharp language server.
+    mono # CSharp.
+    dotnet-sdk # .NET.
+    haskellPackages.ghcup # Haskell package manager?
     haskell-language-server
     nixfmt # Nix formatter.
     lua
     # GUI apps.
     firefox
-    gnome.nautilus
+    gnome.nautilus # File manager.
     vlc
     steam
     lutris
@@ -304,6 +303,7 @@ in {
     libgdiplus
     ffmpeg # Media codecs.
     gcc
+    libgccjit
     glibcLocales
     unstable.certbot
     ripgrep
