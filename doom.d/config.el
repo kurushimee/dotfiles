@@ -21,8 +21,8 @@
 (setenv "FrameworkPathOverride" "/lib/mono/4.5")
 
 ;; Set font.
-(setq  doom-font (font-spec :family "Iosevka" :size 18)
-       doom-variable-pitch-font (font-spec :family "Iosevka" :size 18))
+(setq  doom-font (font-spec :family "Iosevka" :size 14)
+       doom-variable-pitch-font (font-spec :family "Iosevka" :size 14))
 
 ;; Set theme.
 (setq doom-theme 'doom-dracula)
@@ -42,7 +42,7 @@
 
 ;; Configure Treemacs.
 (when window-system
-  (use-package treemacs
+  (after! treemacs
     :commands (treemacs-follow-mode
                treemacs-filewatch-mode
                treemacs-fringe-indicator-mode
@@ -293,8 +293,8 @@
                  (concat (make-string width ?\s) text))))))))
 
 ;; Configure tab lines.
-(unless (version< emacs-version "27")
-  (use-package tab-line
+(unless (or (version< emacs-version "27") (not window-system))
+  (use-package! tab-line
     :ensure nil
     :hook (after-init . global-tab-line-mode)
     :config

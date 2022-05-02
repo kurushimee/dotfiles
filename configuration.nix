@@ -249,37 +249,37 @@ in {
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     # CLI tools.
-    alacritty # Terminal.
-    git # Version control system.
-    pinentry # Key generation for GPG.
-    gnupg # GPG key management.
+    alacritty  # Terminal.
+    git        # Version control system.
+    pinentry   # Key generation for GPG.
+    gnupg      # GPG key management.
     wget
-    neovim # CLI editor.
-    pfetch # System info.
-    feh # Set background image.
+    neovim  # CLI editor.
+    pfetch  # System info.
+    feh     # Set background image.
     sxiv
-    ranger # File manager.
+    ranger  # CLI file manager.
     maim
-    scrot # Screenshot capture tool.
+    scrot  # Screenshot capture tool.
     killall
     unzip
-    service-wrapper # service command support.
-    pavucontrol # Audio volume management.
+    service-wrapper  # service command support.
+    pavucontrol      # Audio volume management.
     nodejs
     shellcheck
     # Languages.
     python310
-    unstable.clang_14 # C++.
-    omnisharp-roslyn # CSharp language server.
-    mono # CSharp.
-    dotnet-sdk # .NET.
-    haskellPackages.ghcup # Haskell package manager?
+    unstable.clang_14      # C++.
+    omnisharp-roslyn       # CSharp language server.
+    mono                   # CSharp.
+    dotnet-sdk             # .NET.
+    haskellPackages.ghcup  # Haskell package manager?
     haskell-language-server
-    nixfmt # Nix formatter.
+    nixfmt  # Nix formatter.
     lua
     # GUI apps.
     firefox
-    gnome.nautilus # File manager.
+    gnome.nautilus  # File manager.
     vlc
     steam
     lutris
@@ -290,25 +290,26 @@ in {
     blueman
     # Window management.
     nur.repos.reedrw.picom-next-ibhagwan # Picom fork with rounded corners and blur.
-    bspwm # Tiling window manager.
-    sxhkd # Keyboard bindings manager.
-    polybar # Top bar for bspwm.
-    rofi # Run tool for bspwm.
+    bspwm    # Tiling window manager.
+    sxhkd    # Keyboard bindings manager.
+    polybar  # Top bar.
+    rofi     # Run tool.
+    dunst    # Notification system.
     # Theming.
-    lxappearance # Change GTK appearance.
-    arc-theme # GTK theme.
-    papirus-icon-theme # Icon theme.
-    bibata-cursors # Cursor theme.
+    lxappearance        # Change GTK appearance.
+    arc-theme           # GTK theme.
+    papirus-icon-theme  # Icon theme.
+    bibata-cursors      # Cursor theme.
     # Libraries.
     libgdiplus
-    ffmpeg # Media codecs.
+    ffmpeg  # Media codecs.
     gcc
     libgccjit
     glibcLocales
     unstable.certbot
     ripgrep
     unstable.fd
-    xclip # Clipboard management.
+    xclip  # Clipboard management.
     xdotool
     xorg.xprop
     xorg.xwininfo
