@@ -1,9 +1,9 @@
 format = """
 $directory\
-[](fg:#DA627D bg:#FCA17D)\
+[](fg:#50FA7B bg:#BD93F9)\
 $git_branch\
 $git_status\
-[ ](fg:#FCA17D)\
+[ ](fg:#BD93F9)\
 """
 
 # Don't print a new line at the start of the prompt
@@ -14,7 +14,7 @@ add_newline = false
 disabled = true
 
 [directory]
-style = "bg:#DA627D"
+style = "fg:#21222C bg:#50FA7B"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -27,10 +27,10 @@ truncation_symbol = "…/"
 
 [git_branch]
 symbol = ""
-style = "bg:#FCA17D"
-format = '[[ $symbol $branch ](bg:#FCA17D)]($style)'
+style = "bg:#BD93F9"
+format = '[[ $symbol $branch ](bg:#BD93F9)]($style)'
 
 [git_status]
-style = "bg:#FCA17D"
-format = '[[($all_status$ahead_behind )](bg:#FCA17D)]($style)'
+style = "bg:#BD93F9"
+format = '[[($all_status$ahead_behind )](bg:#BD93F9)]($style)'
 
