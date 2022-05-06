@@ -1,0 +1,36 @@
+format = """
+$directory\
+[](fg:#DA627D bg:#FCA17D)\
+$git_branch\
+$git_status\
+[ ](fg:#FCA17D)\
+"""
+
+# Don't print a new line at the start of the prompt
+add_newline = false
+
+# Make prompt a single line instead of two lines
+[line_break]
+disabled = true
+
+[directory]
+style = "bg:#DA627D"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = " "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[git_branch]
+symbol = ""
+style = "bg:#FCA17D"
+format = '[[ $symbol $branch ](bg:#FCA17D)]($style)'
+
+[git_status]
+style = "bg:#FCA17D"
+format = '[[($all_status$ahead_behind )](bg:#FCA17D)]($style)'
+
