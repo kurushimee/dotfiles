@@ -14,8 +14,8 @@ set splitbelow splitright
 set title
 set ttimeoutlen=0
 set wildmenu
-set guifont=FiraCode\ NF:h12
-let g:python3_host_prog = 'C:\Users\jerma\AppData\Local\Microsoft\WindowsApps\python3.10.exe'
+set guifont=Iosevka:h13.0
+let g:python3_host_prog = 'C:\Users\jerma\scoop\apps\python\current\python.exe'
 
 " Tabs size
 set shiftwidth=2
@@ -66,17 +66,20 @@ call plug#begin()
   Plug 'sheerun/vim-polyglot'
   Plug 'jiangmiao/auto-pairs'
   Plug 'ap/vim-css-color'
+  Plug 'junegunn/fzf.vim'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'preservim/nerdtree'
   Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
   Plug 'Xuyuanp/nerdtree-git-plugin' 
   Plug 'preservim/nerdcommenter'
   Plug 'tpope/vim-surround'
+  Plug 'liuchengxu/vim-which-key'
 
   " Completion / linters / formatters
   Plug 'neoclide/coc.nvim',  {'branch': 'master', 'do': 'yarn install'}
   Plug 'w0rp/ale'
   Plug 'plasticboy/vim-markdown'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
   " Git
   Plug 'airblade/vim-gitgutter'
@@ -99,12 +102,16 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 " File search
-nnoremap <C-p> :GFiles<CR>
+nnoremap <C-p> :Files<CR>
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit'
   \}
+
+" Execute code
+autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
 " NERDTree
 let g:NERDTreeShowHidden = 1 
