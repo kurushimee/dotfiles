@@ -1,6 +1,9 @@
 " Options
 set background=dark
 let g:neovide_remember_window_size = v:true
+let g:neovide_cursor_animation_length=0
+let g:neovide_cursor_trail_length=0
+let g:neovide_cursor_antialiasing=v:false
 set clipboard=unnamedplus
 set completeopt=noinsert,menuone,noselect
 set cursorline
@@ -15,7 +18,7 @@ set title
 set ttimeoutlen=0
 set wildmenu
 set guifont=FiraCode\ NF:h12.0
-let g:python3_host_prog = '/home/iver/.nix-profile/bin/python'
+let g:python3_host_prog = '/usr/bin/python3'
 
 " Tabs size
 set shiftwidth=2
@@ -58,6 +61,7 @@ augroup END
 call plug#begin()
   " Appearance
   Plug 'dracula/vim'
+  Plug 'morhetz/gruvbox'
   Plug 'vim-airline/vim-airline'
   Plug 'ryanoasis/vim-devicons'
   Plug 'mhinz/vim-startify'
@@ -92,12 +96,12 @@ if (has("termguicolors"))
   set termguicolors
 endif
 set background=dark
-colorscheme dracula" open new split panes to right and below
+colorscheme gruvbox" open new split panes to right and below
 set splitright
 set splitbelow
 
 " Airline
-let g:airline_theme='dracula'
+let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 

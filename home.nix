@@ -8,14 +8,8 @@
 
   # Packages that should be installed to the user profile.
   home.packages = [
-    pkgs.ranger     # File manager with minimalistic curses interface.
+    pkgs.ranger     # CLI file manager.
     pkgs.pinentry   # GnuPG’s interface to passphrase input.
-    pkgs.neovide    # This is a simple graphical user interface for Neovim.
-    pkgs.python310                 # A high-level dynamically-typed programming language.
-    pkgs.python310Packages.black   # The uncompromising Python code formatter.
-    pkgs.python310Packages.flake8  # Flake8 is a wrapper around pyflakes, pycodestyle and mccabe.
-    pkgs.python310Packages.numpy   # Scientific tools for Python.
-    pkgs.python310Packages.pynvim  # Python client for Neovim.
   ];
 
   # This value determines the Home Manager release that your
@@ -47,7 +41,7 @@
     userName = "Ivan Ermacoff";
     userEmail = "jermacoff@gmail.com";
     signing = {
-      key = "810A731D7554CA16";
+      key = "DEFE834B657D760E";
       signByDefault = true;
     };
   };
