@@ -14,8 +14,8 @@ set splitbelow splitright
 set title
 set ttimeoutlen=0
 set wildmenu
-set guifont=Iosevka:h13.0
-let g:python3_host_prog = 'C:\Users\jerma\scoop\apps\python\current\python.exe'
+set guifont=FiraCode\ NF:h12.0
+let g:python3_host_prog = '/home/iver/.nix-profile/bin/python'
 
 " Tabs size
 set shiftwidth=2
