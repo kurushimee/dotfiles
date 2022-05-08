@@ -1,3 +1,4 @@
+if !exists('g:vscode')
 " Options
 set background=dark
 let g:neovide_remember_window_size = v:true
@@ -57,21 +58,23 @@ augroup auto_commands
     autocmd filetype netrw call Netrw_mappings()
 augroup END
 
+" Initialize packer
+lua require('plugins')
+augroup packr_user_config
+  autocmd!
+  autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+augroup ende
+
 " Plugins
 call plug#begin()
   " Appearance
   Plug 'dracula/vim'
   Plug 'morhetz/gruvbox'
-  Plug 'vim-airline/vim-airline'
-  Plug 'ryanoasis/vim-devicons'
-  Plug 'mhinz/vim-startify'
 
   " Utilities
   Plug 'sheerun/vim-polyglot'
   Plug 'jiangmiao/auto-pairs'
   Plug 'ap/vim-css-color'
-  Plug 'junegunn/fzf.vim'
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'preservim/nerdtree'
   Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
   Plug 'Xuyuanp/nerdtree-git-plugin' 
@@ -100,10 +103,12 @@ colorscheme gruvbox" open new split panes to right and below
 set splitright
 set splitbelow
 
+let g:dashboard_default_executive ='telescope'
+
 " Airline
-let g:airline_theme='gruvbox'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
+" let g:airline_theme='gruvbox'
+" let g:airline_powerline_fonts = 1
+" let g:airline#extensions#tabline#enabled = 1
 
 " File search
 nnoremap <C-p> :Files<CR>
@@ -301,4 +306,4 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
+endif
