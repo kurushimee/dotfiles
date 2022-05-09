@@ -58,14 +58,13 @@ augroup auto_commands
     autocmd filetype netrw call Netrw_mappings()
 augroup END
 
-" Initialize packer
-lua require('plugins')
 augroup packr_user_config
   autocmd!
   autocmd BufWritePost plugins.lua source <afile> | PackerCompile
 augroup ende
 
 " Plugins
+packadd packer.nvim
 call plug#begin()
   " Appearance
   Plug 'dracula/vim'
@@ -99,10 +98,11 @@ if (has("termguicolors"))
   set termguicolors
 endif
 set background=dark
-colorscheme gruvbox" open new split panes to right and below
+colorscheme dracula" open new split panes to right and below
 set splitright
 set splitbelow
 
+lua require('init')
 let g:dashboard_default_executive ='telescope'
 
 " Airline
