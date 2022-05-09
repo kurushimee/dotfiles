@@ -1,9 +1,0 @@
-{
-  "pyright.enable": true,
-  "python.formatting.provider": "black",
-  "python.formatting.blackPath": "/home/iver/.local/bin/black",
-  "python.formatting.blackArgs": ["--line-length", "79"],
-  "python.linting.enabled": true,
-  "python.linting.flake8Enabled": true,
-  "coc.preferences.formatOnSaveFiletypes": ["python"]
-}
