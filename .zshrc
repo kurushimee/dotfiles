@@ -20,6 +20,8 @@ export EDITOR='nvim'
 
 # Aliases
 alias ls="ls -A1 --group-directories-first"
+alias vi="nvim"
+alias vim="nvim"
 
 # Enable Starship prompt
 eval "$(starship init zsh)"
