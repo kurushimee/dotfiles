@@ -19,7 +19,6 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR='nvim'
 
 # Aliases
-alias ls="ls -A1 --group-directories-first"
 alias vi="nvim"
 alias vim="nvim"
 
