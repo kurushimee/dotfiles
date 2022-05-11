@@ -25,3 +25,6 @@ alias vim="nvim"
 
 # Enable Starship prompt
 eval "$(starship init zsh)"
+
+# Export GPG signing key
+export GPG_TTY=$(tty)
