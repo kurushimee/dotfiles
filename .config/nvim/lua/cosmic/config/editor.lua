@@ -1,12 +1,10 @@
--- Override Cosmic editor options
-
-local g = vim.g
-local map = require('cosmic.utils').map
-local o = vim.o
-local wo = vim.wo
-local opt = vim.opt
-
--- Enable scrolloff beyond  last line
-o.scrolloff = 10
-wo.scrolloff = 10
-opt.scrolloff = 10
+local tabnine = require('cmp_tabnine.config')
+tabnine:setup({
+  max_lines = 1000;
+  max_num_results = 5;
+  sort = true;
+  run_on_every_keystroke = true;
+  snippet_placeholder = '..';
+  ignored_file_types = {};
+  show_prediction_strength = false;
+})

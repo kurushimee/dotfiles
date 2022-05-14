@@ -27,3 +27,5 @@ eval "$(starship init zsh)"
 
 # Export GPG signing key
 export GPG_TTY=$(tty)
+
+[ -f "/home/iver/.ghcup/env" ] && source "/home/iver/.ghcup/env" # ghcup-env
