@@ -13,17 +13,11 @@ local config = {
     }
   },
 
-  theme = nil,
-
   add_plugins = {
     'airblade/vim-gitgutter',
     {
       'lukas-reineke/indent-blankline.nvim',
       run = { require("indent_blankline").setup {} }
-    },
-    {
-      'EdenEast/nightfox.nvim',
-      run = { vim.cmd("colorscheme nightfox") }
     }
   }
 }
