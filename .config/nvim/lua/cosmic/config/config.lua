@@ -13,18 +13,17 @@ local config = {
     }
   },
 
-  nvim_cmp = {
-    sources = {
-      { name = 'cmp_tabnine' }
-    }
-  },
+  theme = nil,
 
   add_plugins = {
     'airblade/vim-gitgutter',
     {
-      'tzachar/cmp-tabnine',
-      run = './install.sh',
-      requires = 'hrsh7th/nvim-cmp'
+      'lukas-reineke/indent-blankline.nvim',
+      run = { require("indent_blankline").setup {} }
+    },
+    {
+      'EdenEast/nightfox.nvim',
+      run = { vim.cmd("colorscheme nightfox") }
     }
   }
 }
