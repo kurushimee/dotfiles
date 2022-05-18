@@ -6,6 +6,7 @@ local config = {
     servers = {
       omnisharp = {
         cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
+        ---@diagnostic disable-next-line: unused-local
         on_attach = function(client)
           require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
         end
