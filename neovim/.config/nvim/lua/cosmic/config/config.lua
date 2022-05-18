@@ -19,7 +19,8 @@ local config = {
     {
       'lukas-reineke/indent-blankline.nvim',
       run = { require("indent_blankline").setup {} }
-    }
+    },
+    'mg979/vim-visual-multi'
   }
 }
 
