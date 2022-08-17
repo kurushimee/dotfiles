@@ -62,4 +62,7 @@ return require('packer').startup(function(use)
       }
     end
   }
+  use 'szw/vim-maximizer'
+  use 'tpope/vim-fugitive'
+  use 'airblade/vim-gitgutter'
 end)
