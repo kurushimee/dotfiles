@@ -6,15 +6,15 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use {'catppuccin/nvim', as = 'catppuccin'}
-  use {
-    'CosmicNvim/cosmic-ui',
-    requires = { 'MunifTanjim/nui.nvim', 'nvim-lua/plenary.nvim' },
-    config = function()
-      require('cosmic-ui').setup()
-    end
-  }
-  use {'neoclide/coc.nvim', branch = 'release'}
-  use 'OmniSharp/omnisharp-vim'
+
+  use 'neovim/nvim-lspconfig'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/nvim-cmp'
+  use 'onsails/lspkind-nvim'
+
   use 'tpope/vim-dispatch'
   use 'tpope/vim-commentary'
   use {'Shougo/vimproc.vim', run = 'make'}

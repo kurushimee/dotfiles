@@ -1,3 +1,5 @@
 require("iver.set")
 require("iver.packer")
 require("iver.remap")
+require("iver.cmp")
+require("iver.lsp")
