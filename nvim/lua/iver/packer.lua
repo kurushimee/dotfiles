@@ -6,6 +6,13 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use {'catppuccin/nvim', as = 'catppuccin'}
+  use {
+    'CosmicNvim/cosmic-ui',
+    requires = { 'MunifTanjim/nui.nvim', 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('cosmic-ui').setup()
+    end
+  }
 
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/cmp-nvim-lsp'

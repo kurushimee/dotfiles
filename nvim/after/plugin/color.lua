@@ -1,6 +1,16 @@
 vim.g.catppuccin_flavour = "mocha"
 
-require("catppuccin").setup()
+require("catppuccin").setup({
+  integrations = {
+    treesitter = true,
+    native_lsp = { enabled = true },
+    cmp = true,
+    gitgutter = true,
+    gitsigns = true,
+    telescope = true,
+    dashboard = true
+  }
+})
 
 vim.cmd [[colorscheme catppuccin]]
 
