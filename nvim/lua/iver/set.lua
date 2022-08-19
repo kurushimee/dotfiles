@@ -4,6 +4,9 @@ vim.opt.relativenumber = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
+
+vim.cmd 'autocmd FileType cs setlocal tabstop=4 softtabstop=4 shiftwidth=4'
+
 vim.opt.expandtab = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
