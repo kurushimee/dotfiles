@@ -8,6 +8,7 @@ require("catppuccin").setup({
     gitgutter = true,
     gitsigns = true,
     telescope = true,
+    indent_blankline = { enabled = true },
     dashboard = true
   }
 })
@@ -21,3 +22,7 @@ ctp_feline.setup({})
 require("feline").setup({
 	components = ctp_feline.get(),
 })
+
+require("indent_blankline").setup {
+    show_end_of_line = false
+}

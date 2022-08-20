@@ -18,3 +18,6 @@ tnoremap("<c-q>", "<c-\\><c-n><cmd>FTermToggle<cr>")
 nnoremap("gn", '<cmd>lua require("cosmic-ui").rename()<cr>')
 nnoremap("<leader>ga", '<cmd>lua require("cosmic-ui").code_actions()<cr>')
 vnoremap("<leader>ga", '<cmd>lua require("cosmic-ui").range_code_actions()<cr>')
+
+-- Format
+nnoremap("<leader>ff", "<cmd>Format<cr>")

@@ -1,13 +1,18 @@
-local nvim_lsp = require'lspconfig'
+local lspconfig = require'lspconfig'
 
 local pid = vim.fn.getpid()
--- local omnisharp_bin = "/home/iver/Documents/OmniSharp/run"
 local omnisharp_bin = "/home/iver/Documents/omnisharp/OmniSharp.exe"
 
-require'lspconfig'.omnisharp.setup {
-    -- cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) };
-    cmd = { "mono", omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) };
+require("lsp-format").setup {}
+
+vim.cmd 'autocmd FileType cs setlocal tabstop=4 softtabstop=4 shiftwidth=4'
+lspconfig.omnisharp.setup {
+    cmd = { "mono", omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
+    on_attach = require "lsp-format".on_attach
 }
+
+require("mason").setup()
+require("mason-lspconfig").setup()
 
 require('lspkind').init({
     -- defines how annotations are shown

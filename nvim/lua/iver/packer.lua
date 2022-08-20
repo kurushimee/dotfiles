@@ -15,6 +15,9 @@ return require('packer').startup(function(use)
   }
 
   use 'neovim/nvim-lspconfig'
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
+  use 'lukas-reineke/lsp-format.nvim'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
@@ -43,14 +46,16 @@ return require('packer').startup(function(use)
       require("nvim-surround").setup({})
     end
   }
+  use 'lukas-reineke/indent-blankline.nvim'
   use 'numToStr/FTerm.nvim'
-  use 'sunjon/shade.nvim'
   use 'kyazdani42/nvim-web-devicons'
   use 'lewis6991/gitsigns.nvim'
   use 'feline-nvim/feline.nvim'
   use 'glepnir/dashboard-nvim'
   use 'andweeb/presence.nvim'
-  use {'ZhiyuanLck/smart-pairs', event = 'InsertEnter', config = function() require('pairs'):setup() end}
+  use 'NMAC427/guess-indent.nvim'
+  -- use {'ZhiyuanLck/smart-pairs', event = 'InsertEnter', config = function() require('pairs'):setup() end}
+  use 'jiangmiao/auto-pairs'
   use {
     "ahmedkhalf/project.nvim",
     config = function()
@@ -72,4 +77,5 @@ return require('packer').startup(function(use)
   use 'szw/vim-maximizer'
   use 'tpope/vim-fugitive'
   use 'airblade/vim-gitgutter'
+  use 'gpanders/editorconfig.nvim'
 end)
