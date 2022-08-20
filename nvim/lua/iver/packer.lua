@@ -54,7 +54,6 @@ return require('packer').startup(function(use)
   use 'glepnir/dashboard-nvim'
   use 'andweeb/presence.nvim'
   use 'NMAC427/guess-indent.nvim'
-  -- use {'ZhiyuanLck/smart-pairs', event = 'InsertEnter', config = function() require('pairs'):setup() end}
   use 'jiangmiao/auto-pairs'
   use {
     "ahmedkhalf/project.nvim",
@@ -77,5 +76,4 @@ return require('packer').startup(function(use)
   use 'szw/vim-maximizer'
   use 'tpope/vim-fugitive'
   use 'airblade/vim-gitgutter'
-  use 'gpanders/editorconfig.nvim'
 end)
