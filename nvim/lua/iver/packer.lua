@@ -5,7 +5,7 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  use {'catppuccin/nvim', as = 'catppuccin'}
+  use { 'catppuccin/nvim', as = 'catppuccin' }
   use {
     'CosmicNvim/cosmic-ui',
     requires = { 'MunifTanjim/nui.nvim', 'nvim-lua/plenary.nvim' },
@@ -21,16 +21,23 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
+  use 'ray-x/cmp-treesitter'
   use 'hrsh7th/nvim-cmp'
   use 'onsails/lspkind-nvim'
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {}
+    end
+  }
 
   use 'tpope/vim-dispatch'
   use 'tpope/vim-commentary'
-  use {'Shougo/vimproc.vim', run = 'make'}
+  use { 'Shougo/vimproc.vim', run = 'make' }
   use {
     'w0rp/ale',
-    ft = {'sh', 'zsh', 'bash', 'c', 'cpp', 'cmake', 'html', 'markdown', 'racket', 'vim', 'tex'},
+    ft = { 'sh', 'zsh', 'bash', 'c', 'cpp', 'cmake', 'html', 'markdown', 'racket', 'vim', 'tex' },
     cmd = 'ALEEnable',
     config = 'vim.cmd[[ALEEnable]]'
   }
@@ -63,17 +70,18 @@ return require('packer').startup(function(use)
   }
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { { 'nvim-lua/plenary.nvim' } }
   }
   use {
     'max397574/better-escape.nvim',
     config = function()
       require('better_escape').setup {
-        mapping = {"jj"}
+        mapping = { "jj" }
       }
     end
   }
   use 'szw/vim-maximizer'
   use 'tpope/vim-fugitive'
   use 'airblade/vim-gitgutter'
+  use 'vimwiki/vimwiki'
 end)
