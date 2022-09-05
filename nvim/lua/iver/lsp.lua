@@ -15,6 +15,18 @@ lspconfig.sumneko_lua.setup {
   on_attach = require "lsp-format".on_attach
 }
 
+lspconfig.cssls.setup {
+  on_attach = require "lsp-format".on_attach
+}
+
+lspconfig.html.setup {
+  on_attach = require "lsp-format".on_attach
+}
+
+lspconfig.pylsp.setup {
+  on_attach = require "lsp-format".on_attach
+}
+
 require("mason").setup()
 require("mason-lspconfig").setup()
 

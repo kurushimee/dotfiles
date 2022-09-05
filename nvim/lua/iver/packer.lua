@@ -14,16 +14,49 @@ return require('packer').startup(function(use)
     end
   }
 
+  use {
+    'smzm/hydrovim',
+    requires = { 'MunifTanjim/nui.nvim' }
+  }
+  use {
+    'akinsho/flutter-tools.nvim',
+    requires = 'nvim-lua/plenary.nvim',
+    config = function()
+      require("flutter-tools").setup()
+    end
+  }
+  use 'mfussenegger/nvim-dap'
   use 'neovim/nvim-lspconfig'
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
   use 'lukas-reineke/lsp-format.nvim'
+  use { "L3MON4D3/LuaSnip", run = "make install_jsregexp" }
+  use 'saadparwaiz1/cmp_luasnip'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'ray-x/cmp-treesitter'
   use 'hrsh7th/nvim-cmp'
   use 'onsails/lspkind-nvim'
+  use 'NvChad/nvim-colorizer.lua'
+  use({ 'ziontee113/color-picker.nvim',
+    config = function()
+      require('color-picker')
+    end,
+  })
+  use {
+    'yamatsum/nvim-cursorline',
+    config = function()
+      require('nvim-cursorline').setup {
+        cursorline = {
+          enable = true,
+          timeout = 100,
+          number = true,
+        },
+        cursorword = { enable = true }
+      }
+    end
+  }
   use {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
@@ -62,6 +95,12 @@ return require('packer').startup(function(use)
   use 'andweeb/presence.nvim'
   use 'NMAC427/guess-indent.nvim'
   use 'jiangmiao/auto-pairs'
+  use {
+    'windwp/nvim-ts-autotag',
+    config = function()
+      require('nvim-ts-autotag').setup()
+    end
+  }
   use {
     "ahmedkhalf/project.nvim",
     config = function()

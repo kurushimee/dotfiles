@@ -28,3 +28,8 @@ vnoremap("<leader>ga", '<cmd>lua require("cosmic-ui").range_code_actions()<cr>')
 
 -- Format
 nnoremap("<leader>ff", "<cmd>Format<cr>")
+nnoremap("K", "<cmd>lua vim.lsp.buf.hover()<cr>")
+
+-- Color Picker
+nnoremap("<c-c>", "<cmd>PickColor<cr>")
+inoremap("<c-c>", "<cmd>PickColorInsert<cr>")
