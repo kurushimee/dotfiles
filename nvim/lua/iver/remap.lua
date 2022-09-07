@@ -18,6 +18,11 @@ tnoremap("<c-q>", "<c-\\><c-n><cmd>FTermToggle<cr>")
 nnoremap("<leader>tf", "<cmd>Telescope find_files<cr>")
 nnoremap("<leader>tl", "<cmd>Telescope live_grep<cr>")
 
+-- Git
+nnoremap("<leader>Ga", "<cmd>G add .<cr>")
+nnoremap("<leader>Gc", "<cmd>G commit<cr>")
+nnoremap("<leader>Gp", "<cmd>G push")
+
 -- Cosmic-UI
 nnoremap("gn", '<cmd>lua require("cosmic-ui").rename()<cr>')
 nnoremap("<leader>ga", '<cmd>lua require("cosmic-ui").code_actions()<cr>')
