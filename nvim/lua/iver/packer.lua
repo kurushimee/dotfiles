@@ -5,6 +5,9 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- Completion
+  use 'hrsh7th/cmp-buffer'
+
   use { 'catppuccin/nvim', as = 'catppuccin' }
   use {
     'CosmicNvim/cosmic-ui',
@@ -27,13 +30,13 @@ return require('packer').startup(function(use)
   }
   use 'mfussenegger/nvim-dap'
   use 'neovim/nvim-lspconfig'
+  use 'jose-elias-alvarez/null-ls.nvim'
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
   use 'lukas-reineke/lsp-format.nvim'
   use { "L3MON4D3/LuaSnip", run = "make install_jsregexp" }
   use 'saadparwaiz1/cmp_luasnip'
   use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'ray-x/cmp-treesitter'
   use 'hrsh7th/nvim-cmp'
