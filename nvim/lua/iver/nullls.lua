@@ -1,11 +1,19 @@
 local diagnostics = require("null-ls").builtins.diagnostics
 local formatting = require("null-ls").builtins.formatting
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+local code_actions = require("null-ls").builtins.code_actions
 
 require("null-ls").setup({
   sources = {
+    code_actions.gitsigns,
+    code_actions.refactoring,
+
+    diagnostics.flake8,
+
     formatting.black,
-    formatting.prettier
+    formatting.prettier,
+    formatting.stylua,
+    formatting.uncrustify
   },
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then
