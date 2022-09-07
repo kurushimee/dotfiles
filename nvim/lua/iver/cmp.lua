@@ -29,7 +29,10 @@ cmp.setup {
       else
         fallback()
       end
-    end, { "i", "s" })
+    end, { "i", "s" }),
+
+    ["<C-e>"] = cmp.mapping.abort(),
+    ["<CR>"] = cmp.mapping.confirm({ select = true })
   },
 
   snippet = {
@@ -41,8 +44,7 @@ cmp.setup {
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'treesitter' },
-    { name = 'luasnip' }
-  }, {
+    { name = 'luasnip' },
     { name = 'buffer' },
     { name = 'path' }
   }),
@@ -58,7 +60,7 @@ cmp.setup {
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
-      local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+      local kind = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
       local strings = vim.split(kind.kind, "%s", { trimempty = true })
       kind.kind = " " .. strings[1] .. " "
       kind.menu = "    (" .. strings[2] .. ")"
@@ -67,6 +69,29 @@ cmp.setup {
     end,
   }
 }
+
+cmp.setup.filetype("gitcommit", {
+  sources = cmp.config.sources({
+    { name = "cmp_git" },
+  }, {
+    { name = "buffer" },
+  }),
+})
+
+-- Command line completion
+cmp.setup.cmdline("/", {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = { { name = "buffer" } },
+})
+
+cmp.setup.cmdline(":", {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = "path" },
+  }, {
+    { name = "cmdline" },
+  }),
+})
 
 -- Setup lspconfig.
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -78,10 +103,7 @@ require('lspconfig')['omnisharp'].setup {
 require('lspconfig')['sumneko_lua'].setup {
   capabilities = capabilities
 }
-require('lspconfig')['cssls'].setup {
-  capabilities = capabilities
-}
-require('lspconfig')['html'].setup {
+require('lspconfig')['emmet_ls'].setup {
   capabilities = capabilities
 }
 require('lspconfig')['pylsp'].setup {

@@ -1,30 +1,34 @@
 local lspconfig = require 'lspconfig'
+local caps = vim.lsp.protocol.make_client_capabilities()
+local no_format = function(client, bufnr)
+  client.resolved_capabilities.document_formatting = false
+end
 
+-- Capabilities
+caps.textDocument.completion.completionItem.snippetSupport = true
+
+-- Python
+lspconfig.pylsp.setup({
+  on_attach = no_format
+})
+
+-- Emmet
+lspconfig.emmet_ls.setup({
+  filetypes = {
+    "css",
+    "html",
+    "sass",
+    "scss"
+  }
+})
+
+-- C#
 local pid = vim.fn.getpid()
 local omnisharp_bin = "/home/iver/Documents/omnisharp/OmniSharp.exe"
-
-require("lsp-format").setup {}
-
 vim.cmd 'autocmd FileType cs setlocal tabstop=4 softtabstop=4 shiftwidth=4'
 lspconfig.omnisharp.setup {
   cmd = { "mono", omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
-  on_attach = require "lsp-format".on_attach
-}
-
-lspconfig.sumneko_lua.setup {
-  on_attach = require "lsp-format".on_attach
-}
-
-lspconfig.cssls.setup {
-  on_attach = require "lsp-format".on_attach
-}
-
-lspconfig.html.setup {
-  on_attach = require "lsp-format".on_attach
-}
-
-lspconfig.pylsp.setup {
-  on_attach = require "lsp-format".on_attach
+  on_attach = no_format
 }
 
 require("mason").setup()
