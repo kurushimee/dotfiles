@@ -21,7 +21,7 @@ nnoremap("<leader>tl", "<cmd>Telescope live_grep<cr>")
 -- Git
 nnoremap("<leader>Ga", "<cmd>G add .<cr>")
 nnoremap("<leader>Gc", "<cmd>G commit<cr>")
-nnoremap("<leader>Gp", "<cmd>G push")
+nnoremap("<leader>Gp", "<cmd>G push<cr>")
 
 -- Cosmic-UI
 nnoremap("gn", '<cmd>lua require("cosmic-ui").rename()<cr>')
