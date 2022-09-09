@@ -1,5 +1,7 @@
 local lspconfig = require("lspconfig")
 local caps = vim.lsp.protocol.make_client_capabilities()
+caps = require("cmp_nvim_lsp").update_capabilities(caps)
+---@diagnostic disable-next-line: unused-local
 local no_format = function(client, bufnr)
 	client.resolved_capabilities.document_formatting = false
 end
@@ -9,16 +11,16 @@ caps.textDocument.completion.completionItem.snippetSupport = true
 
 -- Lua
 lspconfig.sumneko_lua.setup({
+	Capabilities = caps,
 	on_attach = no_format,
 })
-
 -- Python
 lspconfig.pylsp.setup({
-	on_attach = no_format,
+	Capabilities = caps,
 })
-
 -- Emmet
 lspconfig.emmet_ls.setup({
+	Capabilities = caps,
 	filetypes = {
 		"css",
 		"html",
@@ -27,7 +29,6 @@ lspconfig.emmet_ls.setup({
 	},
 	on_attach = no_format,
 })
-
 -- C#
 -- local pid = vim.fn.getpid()
 -- local omnisharp_bin = "/home/iver/Documents/omnisharp/OmniSharp.exe"
@@ -37,6 +38,7 @@ lspconfig.emmet_ls.setup({
 --   on_attach = no_format
 -- }
 lspconfig.omnisharp.setup({
+	Capabilities = caps,
 	on_attach = no_format,
 })
 

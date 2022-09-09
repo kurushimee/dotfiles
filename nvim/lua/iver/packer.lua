@@ -127,6 +127,7 @@ return require("packer").startup(function(use)
 	use("szw/vim-maximizer")
 
 	-- Color scheme
+	use("EdenEast/nightfox.nvim")
 	use({ "catppuccin/nvim", as = "catppuccin" })
 
 	-- Miscellaneous
