@@ -15,7 +15,7 @@ lspconfig.sumneko_lua.setup({
 	on_attach = no_format,
 })
 -- Python
-lspconfig.pylsp.setup({
+lspconfig.pyright.setup({
 	Capabilities = caps,
 })
 -- Emmet
