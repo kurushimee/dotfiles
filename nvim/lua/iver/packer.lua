@@ -25,17 +25,19 @@ return require("packer").startup(function(use)
 	use({ "williamboman/mason-lspconfig.nvim", requires = { "williamboman/mason.nvim" } })
 	use({ "onsails/lspkind-nvim", requires = { "kyazdani42/nvim-web-devicons" } })
 	use({
-		"CosmicNvim/cosmic-ui",
-		requires = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-		config = function()
-			require("cosmic-ui").setup()
-		end,
-	})
-	use({
 		"folke/trouble.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
 		config = function()
 			require("trouble").setup()
+		end,
+	})
+	use({
+		"glepnir/lspsaga.nvim",
+		branch = "main",
+		config = function()
+			local saga = require("lspsaga")
+
+			saga.init_lsp_saga()
 		end,
 	})
 
@@ -43,9 +45,10 @@ return require("packer").startup(function(use)
 	use("mfussenegger/nvim-dap")
 
 	-- Python
+	use("MunifTanjim/nui.nvim")
 	use({
-		"smzm/hydrovim",
-		requires = { "MunifTanjim/nui.nvim" },
+		"Vimjas/vim-python-pep8-indent",
+		ft = { "py" },
 	})
 
 	-- Flutter
@@ -120,15 +123,17 @@ return require("packer").startup(function(use)
 
 	-- Interface
 	use({ "nvim-neo-tree/neo-tree.nvim", branch = "v2.x" })
-	use("feline-nvim/feline.nvim")
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+	})
 	use("glepnir/dashboard-nvim")
 	use("yamatsum/nvim-cursorline")
 	use("lukas-reineke/indent-blankline.nvim")
 	use("szw/vim-maximizer")
 
 	-- Color scheme
-	use("EdenEast/nightfox.nvim")
-	use({ "catppuccin/nvim", as = "catppuccin" })
+	use("shaunsingh/nord.nvim")
 
 	-- Miscellaneous
 	use("andweeb/presence.nvim")

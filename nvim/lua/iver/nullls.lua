@@ -8,8 +8,11 @@ local code_actions = require("null-ls").builtins.code_actions
 require("null-ls").setup({
 	sources = {
 		code_actions.gitsigns,
-		code_actions.refactoring,
 
+		diagnostics.flake8,
+
+		formatting.black,
+		formatting.isort,
 		formatting.prettier,
 		formatting.stylua,
 		formatting.uncrustify,

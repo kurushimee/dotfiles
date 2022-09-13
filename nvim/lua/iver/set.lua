@@ -3,13 +3,13 @@ local set = vim.opt
 set.background = "dark"
 set.clipboard = "unnamedplus"
 set.completeopt = "noinsert,menuone,noselect"
+set.scrolloff = 5
 set.expandtab = true
 set.smarttab = true
 set.tabstop = 2
 set.softtabstop = 2
 set.shiftwidth = 2
 set.autoindent = true
-set.smartindent = true
 set.foldexpr = "nvim_treesitter#foldexpr()"
 set.foldmethod = "manual"
 set.hidden = true
@@ -31,6 +31,6 @@ set.wrap = true
 
 vim.g.mapleader = " "
 vim.cmd([[
-  filetype plugin indent on
+  filetype indent on
   syntax on
 ]])
