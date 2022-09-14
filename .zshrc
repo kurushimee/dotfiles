@@ -18,3 +18,8 @@ export PATH="$PATH:/home/iver/.local/bin"
 alias vim="nvim"
 alias vi="nvim"
 alias v="nvim"
+
+alias ga="git add ."
+alias gc="git commit"
+alias gu="git push"
+alias gd="git pull"
