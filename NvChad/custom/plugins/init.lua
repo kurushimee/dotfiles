@@ -47,7 +47,6 @@ return {
   },
 
   ["ahmedkhalf/project.nvim"] = {
-    cmd = "Telescope project",
     config = function()
       require("project_nvim").setup()
     end
