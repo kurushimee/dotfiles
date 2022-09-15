@@ -25,33 +25,33 @@ window:
     y: 1
   dimensions:
     columns: 110
-    lines: 35
+    lines: 36
 
-# Colors (Material You)
+# Colors (One Dark)
 colors:
   # Default colors
   primary:
-    background: '#201a19'
-    foreground: '#ede0dd'
+    background: '#1e222a'
+    foreground: '#abb2bf'
 
   # Normal colors
   normal:
-    black:   '#5e5c64'
-    red:     '#ed333b'
-    green:   '#8ff0a4'
-    yellow:  '#f9f06b'
-    blue:    '#62a0ea'
-    magenta: '#c061cb'
-    cyan:    '#99c1f1'
-    white:   '#ffffff'
+    black:   '#1e2127'
+    red:     '#e06c75'
+    green:   '#98c379'
+    yellow:  '#d19a66'
+    blue:    '#61afef'
+    magenta: '#c678dd'
+    cyan:    '#56b6c2'
+    white:   '#abb2bf'
 
   # Bright colors
   bright:
-    black:   '#f66151'
-    red:     '#ed333b'
-    green:   '#8ff0a4'
-    yellow:  '#f9f06b'
-    blue:    '#62a0ea'
-    magenta: '#1a5fb4'
-    cyan:    '#3d3846'
+    black:   '#5c6370'
+    red:     '#e06c75'
+    green:   '#98c379'
+    yellow:  '#d19a66'
+    blue:    '#61afef'
+    magenta: '#c678dd'
+    cyan:    '#56b6c2'
     white:   '#ffffff'
