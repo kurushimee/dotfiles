@@ -1,82 +1,57 @@
+# Fonts
 font:
   normal:
-    family: Cozette
+    family: mononoki Nerd Font Mono
+    style: Regular
 
   bold:
-    family: Cozette
-    style: Medium
+    family: mononoki Nerd Font Mono
+    style: Bold
 
   italic:
-    family: Cozette
-    style: Medium
+    family: mononoki Nerd Font Mono
+    style: Italic
 
   bold_italic:
-    family: Cozette
-    style: Medium
+    family: mononoki Nerd Font Mono
+    style: Bold Italic
 
+  size: 12
+
+# Window
 window:
   padding:
     x: 3
     y: 1
   dimensions:
-    columns: 145
-    lines: 45
+    columns: 110
+    lines: 35
 
-# Copyright (c) 2017-present Arctic Ice Studio <development@arcticicestudio.com>
-# Copyright (c) 2017-present Sven Greb <code@svengreb.de>
-
-# Project:    Nord Alacritty
-# Version:    0.1.0
-# Repository: https://github.com/arcticicestudio/nord-alacritty
-# License:    MIT
-# References:
-#   https://github.com/alacritty/alacritty
-
+# Colors (Material You)
 colors:
+  # Default colors
   primary:
-    background: "#2e3440"
-    foreground: "#d8dee9"
-    dim_foreground: "#a5abb6"
-  cursor:
-    text: "#2e3440"
-    cursor: "#d8dee9"
-  vi_mode_cursor:
-    text: "#2e3440"
-    cursor: "#d8dee9"
-  selection:
-    text: CellForeground
-    background: "#4c566a"
-  search:
-    matches:
-      foreground: CellBackground
-      background: "#88c0d0"
-    bar:
-      background: "#434c5e"
-      foreground: "#d8dee9"
+    background: '#201a19'
+    foreground: '#ede0dd'
+
+  # Normal colors
   normal:
-    black: "#3b4252"
-    red: "#bf616a"
-    green: "#a3be8c"
-    yellow: "#ebcb8b"
-    blue: "#81a1c1"
-    magenta: "#b48ead"
-    cyan: "#88c0d0"
-    white: "#e5e9f0"
+    black:   '#5e5c64'
+    red:     '#ed333b'
+    green:   '#8ff0a4'
+    yellow:  '#f9f06b'
+    blue:    '#62a0ea'
+    magenta: '#c061cb'
+    cyan:    '#99c1f1'
+    white:   '#ffffff'
+
+  # Bright colors
   bright:
-    black: "#4c566a"
-    red: "#bf616a"
-    green: "#a3be8c"
-    yellow: "#ebcb8b"
-    blue: "#81a1c1"
-    magenta: "#b48ead"
-    cyan: "#8fbcbb"
-    white: "#eceff4"
-  dim:
-    black: "#373e4d"
-    red: "#94545d"
-    green: "#809575"
-    yellow: "#b29e75"
-    blue: "#68809a"
-    magenta: "#8c738c"
-    cyan: "#6d96a5"
-    white: "#aeb3bb"
+    black:   '#f66151'
+    red:     '#ed333b'
+    green:   '#8ff0a4'
+    yellow:  '#f9f06b'
+    blue:    '#62a0ea'
+    magenta: '#1a5fb4'
+    cyan:    '#3d3846'
+    white:   '#ffffff'
