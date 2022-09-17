@@ -1,5 +1,5 @@
 local M = {}
 
-M.plugins = require "custom.plugins"
+M.plugins = require("custom.plugins")
 
 return M

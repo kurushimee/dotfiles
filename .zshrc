@@ -19,6 +19,8 @@ alias vim="nvim"
 alias vi="nvim"
 alias v="nvim"
 
+alias gi="git init -b main"
+alias gs="git status"
 alias ga="git add ."
 alias gc="git commit"
 alias gu="git push"

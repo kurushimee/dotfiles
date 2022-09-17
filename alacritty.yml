@@ -1,28 +1,16 @@
 # Fonts
 font:
   normal:
-    family: mononoki Nerd Font Mono
-    style: Regular
+    family: Hasklug Nerd Font
+    style: Medium
 
-  bold:
-    family: mononoki Nerd Font Mono
-    style: Bold
-
-  italic:
-    family: mononoki Nerd Font Mono
-    style: Italic
-
-  bold_italic:
-    family: mononoki Nerd Font Mono
-    style: Bold Italic
-
-  size: 12
+  size: 11
 
 # Window
 window:
   padding:
-    x: 3
-    y: 1
+    x: 12
+    y: 2
   dimensions:
     columns: 110
     lines: 36
