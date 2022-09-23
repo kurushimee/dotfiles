@@ -93,4 +93,10 @@ M.nvimtree = {
 	},
 }
 
+M.nvterm = {
+	terminals = {
+		shell = "pwsh.exe",
+	},
+}
+
 return M

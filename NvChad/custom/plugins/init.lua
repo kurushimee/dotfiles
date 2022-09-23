@@ -39,6 +39,10 @@ return {
 		override_options = overrides.nvimtree,
 	},
 
+	["NvChad/nvterm"] = {
+		override_options = overrides.nvterm,
+	},
+
 	["jose-elias-alvarez/null-ls.nvim"] = {
 		after = "nvim-lspconfig",
 		config = function()
