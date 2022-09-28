@@ -1,8 +1,7 @@
 local M = {}
 
 M.ui = {
-	theme = "solarized_dark",
-	transparency = true,
+	theme = "gruvbox",
 }
 
 M.plugins = require("custom.plugins")

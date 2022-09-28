@@ -3,3 +3,5 @@ if status is-interactive
 end
 
 alias v="nvim"
+
+export QT_STYLE_OVERRIDE=kvantum
