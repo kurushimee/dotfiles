@@ -12,7 +12,7 @@ window:
     y: 2
   dimensions:
     columns: 100
-    lines: 35
+    lines: 40
 
 # Colors (Gruvbox dark)
 colors:
