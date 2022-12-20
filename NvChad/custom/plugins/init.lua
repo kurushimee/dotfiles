@@ -12,7 +12,6 @@ return {
 
 	["neovim/nvim-lspconfig"] = {
 		config = function()
-			require("plugins.configs.lspconfig")
 			require("custom.plugins.configs.lspconfig")
 		end,
 	},
@@ -22,7 +21,6 @@ return {
 	["hrsh7th/nvim-cmp"] = {
 		override_options = overrides.cmp,
 		config = function()
-			require("plugins.configs.cmp")
 			require("custom.plugins.configs.cmp")
 		end,
 	},
@@ -62,4 +60,8 @@ return {
 			require("custom.plugins.configs.autopairs")
 		end,
 	},
+
+	["AckslD/swenv.nvim"] = {},
+
+	["stevearc/dressing.nvim"] = {},
 }

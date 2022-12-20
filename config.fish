@@ -4,4 +4,8 @@ end
 
 alias v="nvim"
 
-export QT_STYLE_OVERRIDE=kvantum
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+fish_add_path /home/iver/.local/bin
+
