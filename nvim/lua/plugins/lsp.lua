@@ -1,30 +1,37 @@
+local BufLoad = { "BufReadPre", "BufNewFile" }
+
 return {
 	"VonHeikemen/lsp-zero.nvim",
+	event = BufLoad,
 	dependencies = {
 		-- LSP Support
-		{ "neovim/nvim-lspconfig" },
-		{ "williamboman/mason.nvim" },
-		{ "williamboman/mason-lspconfig.nvim" },
+		{ "neovim/nvim-lspconfig", event = BufLoad },
+		{ "williamboman/mason.nvim", event = BufLoad },
+		{ "williamboman/mason-lspconfig.nvim", event = BufLoad },
 
 		-- Autocompletion
-		{ "hrsh7th/nvim-cmp" },
-		{ "hrsh7th/cmp-buffer" },
-		{ "hrsh7th/cmp-path" },
-		{ "saadparwaiz1/cmp_luasnip" },
-		{ "hrsh7th/cmp-nvim-lsp" },
-		{ "hrsh7th/cmp-nvim-lua" },
+		{ "hrsh7th/nvim-cmp", event = "InsertEnter" },
+		{ "hrsh7th/cmp-buffer", event = "InsertEnter" },
+		{ "hrsh7th/cmp-path", event = "InsertEnter" },
+		{ "saadparwaiz1/cmp_luasnip", event = "InsertEnter" },
+		{ "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" },
+		{ "hrsh7th/cmp-nvim-lua", event = "InsertEnter" },
 
 		-- Snippets
-		{ "L3MON4D3/LuaSnip" },
-		{ "rafamadriz/friendly-snippets" },
+		{ "L3MON4D3/LuaSnip", event = "InsertEnter" },
+		{ "rafamadriz/friendly-snippets", event = "InsertEnter" },
 	},
 	config = function()
 		local lsp = require("lsp-zero")
 
 		lsp.preset("recommended")
 
+		lsp.ensure_installed({
+			"lua_ls",
+		})
+
 		-- Fix Undefined global 'vim'
-		lsp.configure("lua-language-server", {
+		lsp.configure("lua_ls", {
 			settings = {
 				Lua = {
 					diagnostics = {
@@ -48,6 +55,10 @@ return {
 
 		lsp.setup_nvim_cmp({
 			mapping = cmp_mappings,
+		})
+
+		lsp.set_preferences({
+			suggest_lsp_servers = false,
 		})
 
 		lsp.on_attach(function(client, bufnr)

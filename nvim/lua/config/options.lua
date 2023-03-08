@@ -1,5 +1,6 @@
-vim.opt.guicursor = ""
+vim.opt.clipboard = "unnamedplus"
 
+vim.opt.cursorline = true
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -9,8 +10,6 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
-
-vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false

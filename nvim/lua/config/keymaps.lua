@@ -1,4 +1,6 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 vim.keymap.set("n", "<leader>fe", vim.cmd.Ex)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -37,5 +39,5 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fc", "<cmd>e ~/dotfiles/nvim/init.lua<CR>")
 
 vim.keymap.set("n", "<leader>so", function()
-	vim.cmd("so")
+    vim.cmd("so")
 end)
