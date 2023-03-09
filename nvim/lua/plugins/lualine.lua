@@ -14,7 +14,7 @@ return {
 
         return {
             options = {
-                theme = "auto",
+                theme = "everforest",
                 globalstatus = true,
                 disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
             },
@@ -80,7 +80,7 @@ return {
                 },
                 lualine_z = {
                     function()
-                        return " " .. os.date("%R")
+                        return " " .. os.date("%I:%M %p")
                     end,
                 },
             },
