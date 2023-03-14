@@ -1,8 +1,9 @@
 return {
-	"sainnhe/everforest",
+	"neanias/everforest-nvim",
+	priority = 1000,
 	config = function()
-		vim.g.everforest_background = "hard"
-		vim.g.everforest_better_performance = 1
-		vim.cmd.colorscheme("everforest")
+		local everforest = require("everforest")
+		everforest.setup({ background = "hard" })
+		require("everforest").load()
 	end,
 }
