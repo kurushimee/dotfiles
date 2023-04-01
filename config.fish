@@ -1,4 +1,4 @@
-alias gdvim="nvim --listen ~/.cache/nvim/godot.pipe ."
+alias gvim="nvim --listen 127.0.0.1:55432 ."
 
 export EDITOR="nvim"
 export VISUAL="nvim"

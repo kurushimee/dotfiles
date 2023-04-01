@@ -2,10 +2,10 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Move to window using the <ctrl> hjkl keys
-vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to lower window" })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to upper window" })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to right window" })
+-- vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
+-- vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to lower window" })
+-- vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to upper window" })
+-- vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to right window" })
 
 vim.keymap.set("n", "<leader>fe", vim.cmd.Ex)
 
@@ -40,20 +40,20 @@ vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 vim.keymap.set(
-	"n",
-	"<leader>s",
-	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-	{ desc = "Replace all occurences of a word under cursor" }
+    "n",
+    "<leader>s",
+    [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+    { desc = "Replace all occurences of a word under cursor" }
 )
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set(
-	"n",
-	"<leader>fc",
-	"<cmd>cd ~/dotfiles/ | e ~/dotfiles/nvim/init.lua<CR>",
-	{ desc = "Open personal dotfiles" }
+    "n",
+    "<leader>fc",
+    "<cmd>cd ~/dotfiles/ | e ~/dotfiles/nvim/init.lua<CR>",
+    { desc = "Open personal dotfiles" }
 )
 
 vim.keymap.set("n", "<leader>so", function()
-	vim.cmd("so")
+    vim.cmd("so")
 end, { desc = "Source current file" })

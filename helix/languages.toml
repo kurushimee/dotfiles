@@ -1,0 +1,4 @@
+[[language]]
+name = "gdscript"
+language-server = { command = "nc", args = ["localhost", "6005"], language-id = "gdscript" }
+formatter = { command = "gdformat", args = ["-"] }

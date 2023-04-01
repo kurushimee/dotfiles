@@ -7,10 +7,12 @@ return {
         local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
         nls.setup({
             sources = {
+                nls.builtins.diagnostics.flake8,
+                nls.builtins.diagnostics.gdlint,
                 nls.builtins.formatting.black,
+                nls.builtins.formatting.gdformat,
                 nls.builtins.formatting.isort,
                 nls.builtins.formatting.stylua,
-                nls.builtins.diagnostics.flake8,
             },
             -- you can reuse a shared lspconfig on_attach callback here
             on_attach = function(client, bufnr)

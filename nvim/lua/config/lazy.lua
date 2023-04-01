@@ -8,28 +8,29 @@ end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
-	spec = {
-		{ import = "plugins" },
-		{ import = "plugins.coding" },
-	},
-	defaults = {
-		lazy = false,
-		version = false, -- always use the latest git commit
-	},
-	install = { colorscheme = { "everforest" } },
-	checker = { enabled = true }, -- automatically check for plugin updates
-	performance = {
-		rtp = {
-			-- disable some rtp plugins
-			disabled_plugins = {
-				"gzip",
-				"tarPlugin",
-				"tohtml",
-				"tutor",
-				"zipPlugin",
-			},
-		},
-	},
+    spec = {
+        { import = "plugins" },
+        { import = "plugins.coding" },
+        { import = "plugins.editor" },
+    },
+    defaults = {
+        lazy = false,
+        version = false, -- always use the latest git commit
+    },
+    install = { colorscheme = { "nord" } },
+    checker = { enabled = true }, -- automatically check for plugin updates
+    performance = {
+        rtp = {
+            -- disable some rtp plugins
+            disabled_plugins = {
+                "gzip",
+                "tarPlugin",
+                "tohtml",
+                "tutor",
+                "zipPlugin",
+            },
+        },
+    },
 })
 
 vim.keymap.set("n", "<leader>l", "<Cmd>Lazy<CR>")
