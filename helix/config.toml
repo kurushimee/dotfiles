@@ -25,11 +25,9 @@ normal = "block"
 select = "underline"
 
 [editor.whitespace.render]
-nbsp = "all"
 tab = "all"
 
 [editor.whitespace.characters]
-nbsp = "⍽"
 tab = "→"
 
 [editor.lsp]
