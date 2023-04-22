@@ -4,7 +4,6 @@ theme = "sonokai"
 true-color = true
 line-number = "relative"
 mouse = false
-rulers = [80]
 shell = ["zsh", "-c"]
 
 [keys.normal]
