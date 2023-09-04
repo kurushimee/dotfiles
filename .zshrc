@@ -101,3 +101,5 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 eval "$(starship init zsh)"
+
+# export PATH="/home/iver/.local/pipx/venvs/neovim-remote/bin:/home/iver/.local/pipx/shared/bin:$PATH"
