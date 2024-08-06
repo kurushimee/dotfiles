@@ -1,0 +1,6 @@
+[language-server.roslyn]
+command = "roslyn-language-server"
+
+[[language]]
+name = "c-sharp"
+language-servers = ["roslyn"]

@@ -1,0 +1,21 @@
+theme = "kurushimee"
+
+[editor]
+line-number = "relative"
+mouse = false
+completion-timeout = 5
+true-color = true
+color-modes = true
+
+[editor.statusline]
+left = ["mode", "version-control"]
+center = ["file-name", "read-only-indicator", "file-modification-indicator"]
+right = ["diagnostics", "spinner", "position-percentage", "spacer"]
+
+[editor.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+"'" = "'"
+'<' = '>'
