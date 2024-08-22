@@ -1,4 +1,0 @@
-inherits = "poimandres"
-
-# make the background transparent
-"ui.background" = {}
