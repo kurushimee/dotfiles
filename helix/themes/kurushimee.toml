@@ -1,0 +1,23 @@
+inherits = "nord"
+
+"ui.background" = {}
+
+"ui.menu" = {}
+"ui.menu.scroll" = { bg = "#022a34" }
+"ui.menu.selected" = { fg = "#66ffff", bg = "#022a34" }
+"ui.popup" = { bg = "#022a34" }
+"ui.popup.info" = { bg = "#022a34" }
+"ui.help" = { bg = "#022a34" }
+"ui.text.focus" = { fg = "#66ffff", bg = "#022a34" }
+
+"ui.cursor" = { fg = "#01161b", bg = "#04acb5" }
+"ui.cursor.primary" = { fg = "#01161b", bg = "#66ffff" }
+
+"ui.selection" = { fg = "#00cccc", bg = "#022a34" }
+
+"ui.statusline" = {}
+"ui.statusline.inactive" = { fg = "#00cccc", bg = "#022a34" }
+"ui.statusline.insert" = { fg = "#01161b", bg = "#05bbc5" }
+"ui.statusline.normal" = { fg = "#01161b", bg = "#66ffff" }
+"ui.statusline.select" = { fg = "#01161b", bg = "#00cccc" }
+"ui.statusline.separator" = "#007b82"
