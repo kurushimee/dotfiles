@@ -12,10 +12,5 @@ left = ["mode", "version-control"]
 center = ["file-name", "read-only-indicator", "file-modification-indicator"]
 right = ["diagnostics", "spinner", "position-percentage", "spacer"]
 
-[editor.auto-pairs]
-'(' = ')'
-'{' = '}'
-'[' = ']'
-'"' = '"'
-"'" = "'"
-'<' = '>'
+[editor.lsp]
+display-messages = true
