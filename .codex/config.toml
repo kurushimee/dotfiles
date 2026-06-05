@@ -1,0 +1,37 @@
+approvals_reviewer = "user"
+
+[tui]
+status_line = ["model-with-reasoning", "current-dir", "context-used", "five-hour-limit", "weekly-limit", "used-tokens", "task-progress"]
+status_line_use_colors = true
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
+
+[notice]
+hide_full_access_warning = true
+
+[features]
+terminal_resize_reflow = true
+memories = true
+
+[memories]
+use_memories = true
+generate_memories = true
+
+[mcp_servers.context7]
+type = "http"
+url = "https://mcp.context7.com/mcp"
+
+[mcp_servers.context7.http_headers]
+CONTEXT7_API_KEY = "{KEY}"
+
+[mcp_servers.oracle]
+command = "oracle-codex-mcp"
+args = []
+enabled_tools = ["consult", "continue", "sessions"]
+default_tools_approval_mode = "approve"
+startup_timeout_sec = 30
+tool_timeout_sec = 3600
+
+[mcp_servers.oracle.env]
+ORACLE_ENGINE = "browser"

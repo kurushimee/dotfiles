@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+winrepo="$(wslpath -w "$PWD")"
+exec "/mnt/c/Program Files/Git/cmd/git.exe" -C "$winrepo" "$@"

@@ -1,0 +1,175 @@
+{
+  "$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
+  "preset": "opus",
+  "presets": {
+    "codex": {
+      "orchestrator": {
+        "model": "openai/gpt-5.5",
+        "skills": [
+          "*"
+        ],
+        "mcps": [
+          "*",
+          "websearch"
+        ]
+      },
+      "oracle": {
+        "model": "openai/gpt-5.5",
+        "variant": "high",
+        "skills": [],
+        "mcps": []
+      },
+      "council": {
+        "model": "openai/gpt-5.5"
+      },
+      "librarian": {
+        "model": "litellm/mini-max/m3",
+        "variant": "adaptive",
+        "skills": [],
+        "mcps": [
+          "websearch",
+          "context7",
+          "grep_app"
+        ]
+      },
+      "explorer": {
+        "model": "litellm/mini-max/m3",
+        "variant": "adaptive",
+        "skills": [],
+        "mcps": []
+      },
+      "designer": {
+        "model": "fireworks-ai/accounts/fireworks/models/kimi-k2p6",
+        "skills": [],
+        "mcps": []
+      },
+      "fixer": {
+        "model": "litellm/mini-max/m3",
+        "variant": "adaptive",
+        "skills": [],
+        "mcps": []
+      }
+    },
+    "opus": {
+      "orchestrator": {
+        "model": "litellm/claude-max/opus",
+        "variant": "xhigh",
+        "skills": [
+          "*"
+        ],
+        "mcps": [
+          "*"
+        ]
+      },
+      "oracle": {
+        "model": "openai/gpt-5.5",
+        "variant": "xhigh",
+        "skills": [],
+        "mcps": []
+      },
+      "council": {
+        "model": "litellm/claude-max/opus",
+        "variant": "max"
+      },
+      "librarian": {
+        "model": "litellm/claude-max/haiku",
+        "skills": [],
+        "mcps": [
+          "websearch",
+          "context7",
+          "grep_app"
+        ]
+      },
+      "explorer": {
+        "model": "litellm/claude-max/haiku",
+        "skills": [],
+        "mcps": []
+      },
+      "designer": {
+        "model": "litellm/claude-max/opus",
+        "skills": [],
+        "mcps": []
+      },
+      "fixer": {
+        "model": "litellm/mini-max/m3",
+        "variant": "adaptive",
+        "skills": [],
+        "mcps": []
+      }
+    },
+    "minimax": {
+      "orchestrator": {
+        "model": "litellm/mini-max/m3",
+        "variant": "adaptive",
+        "skills": [
+          "*"
+        ],
+        "mcps": [
+          "*",
+          "!context7"
+        ]
+      },
+      "oracle": {
+        "model": "fireworks-ai/accounts/fireworks/models/deepseek-v4-pro",
+        "variant": "max",
+        "skills": [
+          "simplify"
+        ],
+        "mcps": []
+      },
+      "council": {
+        "model": "litellm/mini-max/m3",
+        "variant": "adaptive"
+      },
+      "librarian": {
+        "model": "fireworks-ai/accounts/fireworks/models/minimax-m2p7",
+        "skills": [],
+        "mcps": [
+          "websearch",
+          "context7",
+          "grep_app"
+        ]
+      },
+      "explorer": {
+        "model": "fireworks-ai/accounts/fireworks/models/minimax-m2p7",
+        "skills": [],
+        "mcps": []
+      },
+      "designer": {
+        "model": "fireworks-ai/accounts/fireworks/models/kimi-k2p6",
+        "skills": [],
+        "mcps": []
+      },
+      "fixer": {
+        "model": "fireworks-ai/accounts/fireworks/models/deepseek-v4-flash",
+        "variant": "high",
+        "skills": [],
+        "mcps": []
+      }
+    }
+  },
+  "council": {
+    "presets": {
+      "default": {
+        "alpha": {
+          "model": "litellm/claude-max/sonnet",
+          "variant": "high"
+        },
+        "beta": {
+          "model": "openai/gpt-5.5",
+          "variant": "high"
+        },
+        "gamma": {
+          "model": "litellm/mini-max/m3",
+          "variant": "adaptive"
+        }
+      }
+    }
+  },
+  "todoContinuation": {
+    "maxContinuations": 50,
+    "cooldownMs": 3000,
+    "autoEnable": false,
+    "autoEnableThreshold": 4
+  }
+}

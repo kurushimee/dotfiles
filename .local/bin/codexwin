@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+export PATH="$HOME/.local/codex-winfs-bin:$PATH"
+export GIT_OPTIONAL_LOCKS=0
+exec codex -c sandbox_mode=\"danger-full-access\" "$@"

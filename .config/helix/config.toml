@@ -1,0 +1,14 @@
+theme = "amberwood"
+
+[editor]
+true-color = true
+trim-final-newlines = true
+trim-trailing-whitespace = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.soft-wrap]
+enable = true
