@@ -3,7 +3,7 @@
 ## WSL setup
 
 1. `sudo apt update && sudo apt upgrade -y`
-2. `sudo apt install -y git gh curl wget unzip ripgrep fd-find jq python3-full pip pipx build-essential wslu`
+2. `sudo apt install -y git gh curl wget unzip ripgrep fd-find jq python3-full pip pipx build-essential wl-clipboard wslu`
 3. `sudo snap install --classic helix`
 
 ### Node

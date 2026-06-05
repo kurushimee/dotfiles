@@ -1,0 +1,17 @@
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+[language-server.rust-analyzer.config.cargo]
+features = "all"
+
+[language-server.gh-actions-language-server]
+command = 'gh-actions-language-server'
+args = ['--stdio']
+config = { sessionToken = ""}
+
+# GitHub Actions workflow language
+[[language]]
+name = "yaml"
+file-types = [{ glob = ".github/workflows/*.yml" }, { glob = ".github/workflows/*.yaml" }]
+language-servers = ["gh-actions-language-server"]
+roots = [".github", ".git"]
