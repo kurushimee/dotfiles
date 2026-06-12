@@ -32,13 +32,6 @@
 
 1. `sudo apt update`
 2. `sudo apt install -y bubblewrap apparmor-profiles apparmor-utils`
-
-3.
-```bash
-sudo install -m 0644 \
-  /usr/share/apparmor/extra-profiles/bwrap-userns-restrict \
-  /etc/apparmor.d/bwrap-userns-restrict
-```
-
+3. `sudo install -m 0644 /usr/share/apparmor/extra-profiles/bwrap-userns-restrict /etc/apparmor.d/bwrap-userns-restrict`
 4. `sudo apparmor_parser -r /etc/apparmor.d/bwrap-userns-restrict`
 5. `sudo systemctl reload apparmor.service`
