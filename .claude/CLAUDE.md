@@ -1,0 +1,1 @@
+/home/kuru/.claude/CLAUDE.md
