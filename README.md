@@ -6,22 +6,23 @@
 sudo apt update && sudo apt upgrade -y
 ```
 
-### Fix VPN MTU
+### Fix VPN
+
+WSL HTTPS streams may stall/time out when using a VPN in tun mode on Windows. WSL’s Linux TCP path is basically intermittently breaking. To fix:
 
 ```bash
-sudo tee /usr/local/sbin/wsl-fix-mtu >/dev/null <<'EOF'
-#!/bin/sh
-IFACE=$(ip route get 1.1.1.1 2>/dev/null | sed -n 's/.* dev \([^ ]*\).*/\1/p')
-[ -n "$IFACE" ] && ip link set dev "$IFACE" mtu 1280 || true
+sudo tee /etc/sysctl.d/99-wsl-tcp-timeout-workaround.conf >/dev/null <<'EOF'
+net.ipv4.tcp_timestamps = 0
 EOF
 
-sudo chmod +x /usr/local/sbin/wsl-fix-mtu
+sudo sysctl --system
 ```
 
-Then add or merge to `/etc/wsl.conf`:
+Additionally, if this doesn't persist, can try adding to `/etc/wsl.conf`:
 ```
 [boot]
-command=/usr/local/sbin/wsl-fix-mtu
+systemd=true
+command=sysctl -w net.ipv4.tcp_timestamps=0
 ```
 
 ### Essentials
