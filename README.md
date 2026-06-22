@@ -4,6 +4,29 @@
 
 ```bash
 sudo apt update && sudo apt upgrade -y
+```
+
+### Fix VPN MTU
+
+```bash
+sudo tee /usr/local/sbin/wsl-fix-mtu >/dev/null <<'EOF'
+#!/bin/sh
+IFACE=$(ip route get 1.1.1.1 2>/dev/null | sed -n 's/.* dev \([^ ]*\).*/\1/p')
+[ -n "$IFACE" ] && ip link set dev "$IFACE" mtu 1280 || true
+EOF
+
+sudo chmod +x /usr/local/sbin/wsl-fix-mtu
+```
+
+Then add or merge to `/etc/wsl.conf`:
+```
+[boot]
+command=/usr/local/sbin/wsl-fix-mtu
+```
+
+### Essentials
+
+```bash
 sudo apt install -y git gh curl wget zstd zip unzip ripgrep fd-find jq python3-full pip pipx build-essential wl-clipboard wslu
 sudo snap install --classic helix
 ```
