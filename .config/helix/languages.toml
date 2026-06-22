@@ -8,14 +8,6 @@ features = "all"
 format = { enable = true }
 validation = true
 
-[language-server.gh-actions-language-server]
-command = 'gh-actions-language-server'
-args = ['--stdio']
-config = { sessionToken = ""}
-
-# GitHub Actions workflow language
-[[language]]
-name = "yaml"
-file-types = [{ glob = ".github/workflows/*.yml" }, { glob = ".github/workflows/*.yaml" }]
-language-servers = ["gh-actions-language-server"]
-roots = [".github", ".git"]
+[language-server.yaml-language-server.config.yaml.schemas]
+"https://json.schemastore.org/github-workflow.json" = ".github/workflows/*.{yml,yaml}"
+"https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-tasks.json" = "roles/{tasks,handlers}/*.{yml,yaml}"
