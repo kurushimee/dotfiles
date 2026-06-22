@@ -4,7 +4,7 @@
 
 ```bash
 sudo apt update && sudo apt upgrade -y
-sudo apt install -y git gh curl wget unzip ripgrep fd-find jq python3-full pip pipx build-essential wl-clipboard wslu
+sudo apt install -y git gh curl wget zstd zip unzip ripgrep fd-find jq python3-full pip pipx build-essential wl-clipboard wslu
 sudo snap install --classic helix
 ```
 
