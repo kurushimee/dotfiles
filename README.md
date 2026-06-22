@@ -32,6 +32,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 - **Rust:** `rustup component add rust-analyzer && rustup component add clippy`
 - **Shell:** `bun a -g bash-language-server && sudo snap install shellcheck shfmt`
 - **TOML:** `cargo install taplo-cli --locked --features lsp`
+- **YAML:** `bun a -g yaml-language-server@next`
 
 ### Codex
 
