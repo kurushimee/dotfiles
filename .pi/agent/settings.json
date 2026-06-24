@@ -14,7 +14,10 @@
     "npm:@dreki-gg/pi-context7",
     "npm:@mrclrchtr/supi-lsp",
     "npm:@georgebashi/pi-retry",
-    "npm:pi-invisible-continue"
+    "npm:pi-invisible-continue",
+    "npm:@narumitw/pi-goal",
+    "npm:@trevonistrevon/pi-loop",
+    "npm:@tintinweb/pi-tasks"
   ],
   "observational-memory": {
     "model": {
