@@ -1,0 +1,52 @@
+name: reduce-build-time
+description: "Reduce application build time while preserving test pass rate"
+
+metric:
+  primary:
+    type: hard
+    name: build_seconds
+    direction: minimize
+    target: 30
+  degenerate_gates:
+    - name: tests_passed
+      check: "== 1"
+      description: "Reject any experiment that breaks the test suite"
+  diagnostics:
+    - name: bundle_kb
+    - name: test_seconds
+
+measurement:
+  command: "python scripts/evaluate_build.py"
+  timeout_seconds: 900
+  output_format: json
+  working_directory: "."
+  stability:
+    mode: repeat
+    repeat_count: 3
+    aggregation: median
+    noise_threshold: 1.0
+
+scope:
+  mutable:
+    - "vite.config.ts"
+    - "src/"
+    - "package.json"
+  immutable:
+    - "scripts/evaluate_build.py"
+    - "tests/fixtures/"
+
+execution:
+  mode: serial
+
+dependencies:
+  approved: []
+
+constraints:
+  - "Do not remove user-facing functionality"
+  - "Keep the measurement harness unchanged"
+
+stopping:
+  max_iterations: 8
+  max_hours: 2
+  plateau_iterations: 3
+  target_reached: true

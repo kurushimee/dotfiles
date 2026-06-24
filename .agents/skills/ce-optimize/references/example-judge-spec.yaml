@@ -1,0 +1,82 @@
+name: improve-issue-clustering
+description: "Improve coherence and coverage of issue clusters"
+
+metric:
+  primary:
+    type: judge
+    name: mean_score
+    direction: maximize
+    target: 4.2
+  degenerate_gates:
+    - name: solo_pct
+      check: "<= 0.95"
+      description: "Reject all-singleton outputs"
+    - name: max_cluster_size
+      check: "<= 500"
+      description: "Reject mega-clusters"
+  diagnostics:
+    - name: cluster_count
+    - name: median_cluster_size
+    - name: runtime_seconds
+  judge:
+    model: haiku
+    sample_size: 10
+    batch_size: 5
+    sample_seed: 42
+    max_total_cost_usd: 5
+    minimum_improvement: 0.3
+    stratification:
+      - bucket: "top_by_size"
+        count: 4
+      - bucket: "mid_range"
+        count: 4
+      - bucket: "small_clusters"
+        count: 2
+    singleton_sample: 5
+    rubric: |
+      Rate this cluster 1-5:
+      - 5: All items clearly describe the same underlying issue or feature.
+      - 4: Strong shared theme with minor outliers.
+      - 3: Related but includes 2-3 subtopics that could reasonably split.
+      - 2: Weak connection based mostly on superficial similarity.
+      - 1: Unrelated items grouped together.
+      Return JSON fields: score, distinct_topics, outlier_count.
+    singleton_rubric: |
+      Decide whether this singleton should have been grouped with an existing cluster.
+      Return JSON fields: should_cluster (boolean), best_cluster_id (string|null), confidence (1-5).
+
+measurement:
+  command: "python scripts/evaluate_clusters.py --json"
+  timeout_seconds: 600
+  output_format: json
+  working_directory: "."
+  stability:
+    mode: stable
+    noise_threshold: 0.05
+
+scope:
+  mutable:
+    - "src/clustering/"
+    - "src/preprocessing/"
+    - "config/clustering.yaml"
+  immutable:
+    - "scripts/evaluate_clusters.py"
+    - "data/"
+    - "tests/fixtures/"
+
+execution:
+  mode: serial
+
+dependencies:
+  approved:
+    - "numpy"
+
+constraints:
+  - "Preserve the cluster output schema"
+  - "Do not change fixture data or evaluation scripts"
+
+stopping:
+  max_iterations: 10
+  max_hours: 3
+  plateau_iterations: 4
+  target_reached: true

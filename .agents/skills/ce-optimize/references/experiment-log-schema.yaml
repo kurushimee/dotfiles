@@ -1,0 +1,218 @@
+# Experiment Log Schema
+# Canonical schema for the experiment log file accumulated by /ce-optimize.
+# Location: .context/compound-engineering/ce-optimize/<spec-name>/experiment-log.yaml
+
+# PERSISTENCE MODEL:
+# The experiment log on disk is the SINGLE SOURCE OF TRUTH. The agent's
+# in-memory context is expendable and will be compacted during long runs.
+
+# Write discipline:
+# - Each experiment entry is appended immediately after measurement
+# - Outcome fields may be updated in place after evaluation
+# - The `best` section is updated after each kept experiment
+# - The `hypothesis_backlog` is updated as hypotheses are selected or added
+# - The agent re-reads this file from disk at every phase boundary
+
+structure:
+
+  spec:
+    type: string
+    required: true
+    description: "Name of the optimization spec this log belongs to"
+
+  run_id:
+    type: string
+    required: true
+    description: "Unique identifier for this optimization run"
+
+  started_at:
+    type: string
+    format: "ISO 8601 timestamp"
+    required: true
+
+  baseline:
+    type: object
+    required: true
+    description: "Metrics measured on the original code before any optimization"
+    children:
+      timestamp:
+        type: string
+        format: "ISO 8601 timestamp"
+      gates:
+        type: object
+        description: "Key-value pairs of gate metric names to baseline values"
+      diagnostics:
+        type: object
+        description: "Key-value pairs of diagnostic metric names to baseline values"
+      judge:
+        type: object
+        description: "Judge scores on the baseline, only when primary type is 'judge'"
+        children:
+          sample_seed:
+            type: integer
+          judge_cost_usd:
+            type: number
+
+  experiments:
+    type: array
+    required: true
+    description: "Ordered list of all experiments, including kept, reverted, errored, timeout, and deferred"
+    items:
+      type: object
+
+  best:
+    type: object
+    required: true
+    description: "Summary of the current best result"
+    children:
+      iteration:
+        type: integer
+        description: "Iteration number of the best experiment; use 0 for baseline"
+      metrics:
+        type: object
+        description: "All metric values from the current best state"
+      judge:
+        type: object
+        description: "Judge scores from the best experiment, only when primary type is 'judge'"
+      total_judge_cost_usd:
+        type: number
+        description: "Running total of all judge costs across experiments"
+
+  hypothesis_backlog:
+    type: array
+    description: "Remaining hypotheses not yet tested"
+    items:
+      type: object
+      children:
+        description:
+          type: string
+        category:
+          type: string
+        priority:
+          type: string
+          enum: [high, medium, low]
+        dep_status:
+          type: string
+          enum: [approved, needs_approval, not_applicable]
+        required_deps:
+          type: array
+          items:
+            type: string
+
+experiment_entry:
+  required_children:
+
+    iteration:
+      type: integer
+      description: "Sequential experiment number, 1-indexed and monotonically increasing"
+
+    hypothesis:
+      type: string
+      description: "Human-readable description of what this experiment tried"
+
+    category:
+      type: string
+      description: "Category for grouping and diversity selection"
+
+    outcome:
+      type: enum
+      values:
+        - measured
+        - kept
+        - reverted
+        - degenerate
+        - error
+        - deferred_needs_approval
+        - timeout
+      description: >
+        Load-bearing state for the loop. 'measured' is the only non-terminal
+        state and exists so CP-3 can persist raw metrics before comparison.
+        'kept' advances the optimization branch. All other states are terminal
+        for that experiment.
+
+  optional_children:
+
+    result_marker:
+      type: string
+      description: "Path to experiments/<iteration>/result.yaml"
+
+    changes:
+      type: array
+      description: "Files modified by this experiment"
+      items:
+        type: object
+        children:
+          file:
+            type: string
+          summary:
+            type: string
+
+    gates:
+      type: object
+      description: "Gate metric values from the measurement command"
+
+    gates_passed:
+      type: boolean
+      description: "Whether all degenerate gates passed"
+
+    diagnostics:
+      type: object
+      description: "Diagnostic metric values from the measurement command"
+
+    judge:
+      type: object
+      description: "Judge evaluation scores, only when primary type is 'judge' and gates passed"
+      children:
+        judge_cost_usd:
+          type: number
+          description: "Cost of judge calls for this experiment"
+
+    primary_delta:
+      type: string
+      description: "Change in primary metric from current best"
+
+    learnings:
+      type: string
+      description: "What was learned from this experiment"
+
+    commit:
+      type: string
+      description: "Git commit SHA, only for kept outcomes"
+
+    deferred_reason:
+      type: string
+      description: "Why this experiment was deferred"
+
+    error_message:
+      type: string
+      description: "Error details for error and timeout outcomes"
+
+outcome_state_transitions: |
+  proposed in hypothesis_backlog
+    -> selected
+      -> experiment fork completes
+        -> needs unapproved dep      -> outcome: deferred_needs_approval
+        -> measurement error         -> outcome: error
+        -> measurement timeout       -> outcome: timeout
+        -> gates failed              -> outcome: degenerate
+        -> gates passed
+          -> persist raw metrics      -> outcome: measured
+          -> improves current best    -> outcome: kept
+          -> does not improve         -> outcome: reverted
+
+  Only 'kept' produces a commit.
+
+result_marker_shape: |
+  iteration: 1
+  timestamp: "2026-06-24T12:00:00Z"
+  hypothesis: "Remove template boilerplate before embedding"
+  changed_files:
+    - src/clustering/preprocess.py
+  raw_metrics:
+    cluster_coherence: 4.1
+  aggregate_metrics:
+    cluster_coherence: 4.1
+  gates:
+    solo_pct: 0.42
+  diagnostics:
+    runtime_seconds: 12.4
