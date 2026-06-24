@@ -24,18 +24,32 @@
   ],
   "observational-memory": {
     "model": {
-      "provider": "minimax",
-      "id": "MiniMax-M3",
+      "provider": "fireworks",
+      "id": "accounts/fireworks/models/deepseek-v4-flash",
       "thinking": "high"
     }
   },
   "pi-fork": {
+    "extensions": [
+      "git:github.com/elpapi42/pi-fork",
+      "npm:pi-observational-memory",
+      "git:github.com/elpapi42/pi-minimal-subagent",
+      "npm:pi-rtk-optimizer",
+      "npm:pi-image-tools",
+      "npm:@ff-labs/pi-fff",
+      "npm:@dreki-gg/pi-context7",
+      "npm:@mrclrchtr/supi-lsp",
+      "npm:@georgebashi/pi-retry",
+      "npm:@narumitw/pi-goal",
+      "npm:@trevonistrevon/pi-loop",
+      "npm:@tintinweb/pi-tasks"
+    ],
     "offline": false,
     "defaultEffort": "balanced",
     "effortProfiles": {
       "fast": {
-        "provider": "minimax",
-        "id": "MiniMax-M3",
+        "provider": "fireworks",
+        "id": "accounts/fireworks/models/deepseek-v4-flash",
         "thinking": "high"
       },
       "balanced": {

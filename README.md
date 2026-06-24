@@ -67,3 +67,7 @@ sudo install -m 0644 /usr/share/apparmor/extra-profiles/bwrap-userns-restrict /e
 sudo apparmor_parser -r /etc/apparmor.d/bwrap-userns-restrict
 sudo systemctl reload apparmor.service
 ```
+
+### Pi
+
+Note on `observational-memory` extension: if using a `fireworks`-provider model, you HAVE to `/login` into fireworks and manually enter your API key, so that it is saved in `auth.json`. This is what I've found to be the case, it ignores the environment variable and errors out otherwise.

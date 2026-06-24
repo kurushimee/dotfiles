@@ -26,6 +26,8 @@ When calling a new Fork, specify to it that it is indeed a fork. So, when you la
 
 Be VERY explicit about what you want the fork to do. For `fast`/`balanced` agents that you want to use purely for gathering information, be VERY explicit that they're purely read-only agents and are strictly prohibited from making any changes/creating anything.
 
+The fork can't communicate upstream either. It can't use ask_user_question or anything of this sort.
+
 ## OBJECT FLOOR
 
 A response is invalid when its first visible move does not touch the user’s presented object.
