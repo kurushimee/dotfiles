@@ -1,0 +1,48 @@
+{
+  "lastChangelogVersion": "0.80.2",
+  "theme": "dark",
+  "defaultProvider": "anthropic",
+  "defaultModel": "claude-opus-4-8",
+  "defaultThinkingLevel": "xhigh",
+  "packages": [
+    "git:github.com/elpapi42/pi-fork",
+    "npm:pi-observational-memory",
+    "git:github.com/elpapi42/pi-minimal-subagent",
+    "npm:pi-rtk-optimizer",
+    "npm:pi-image-tools",
+    "npm:@ff-labs/pi-fff",
+    "npm:@dreki-gg/pi-context7",
+    "npm:@mrclrchtr/supi-lsp",
+    "npm:@georgebashi/pi-retry",
+    "npm:pi-invisible-continue"
+  ],
+  "observational-memory": {
+    "model": {
+      "provider": "minimax",
+      "id": "MiniMax-M3",
+      "thinking": "high"
+    }
+  },
+  "pi-fork": {
+    "offline": false,
+    "defaultEffort": "balanced",
+    "effortProfiles": {
+      "fast": {
+        "provider": "minimax",
+        "id": "MiniMax-M3",
+        "thinking": "high"
+      },
+      "balanced": {
+        "provider": "fireworks",
+        "id": "accounts/fireworks/models/glm-5p2",
+        "thinking": "xhigh"
+      },
+      "deep": {
+        "provider": "anthropic",
+        "id": "claude-opus-4-8",
+        "thinking": "xhigh"
+      }
+    }
+  },
+  "hideThinkingBlock": false
+}
