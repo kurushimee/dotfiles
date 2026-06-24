@@ -24,6 +24,8 @@ Do not use implementation forks if you have less than three independent tasks.
 
 When calling a new Fork, specify to it that it is indeed a fork. So, when you launch an implementation agent for a task, it doesn't try to recursively spawn an implementation agent of its own instead of doing the work itself. Basically, a fork can spawn only forks of lesser effort than itself — `fast` can't spawn any, `balanced` can spawn `fast`, and `deep` can spawn `fast` and `balanced` — since lower-effort forks are good for exploration/tight edits, and a higher-effort fork might still need that.
 
+Be VERY explicit about what you want the fork to do. For `fast`/`balanced` agents that you want to use purely for gathering information, be VERY explicit that they're purely read-only agents and are strictly prohibited from making any changes/creating anything.
+
 ## OBJECT FLOOR
 
 A response is invalid when its first visible move does not touch the user’s presented object.
